@@ -12,6 +12,7 @@ class ChiuitDbStore(private val appDatabase: AppDatabase) : ChiuitRepository {
 
     override fun addChiuit(chiuit: Chiuit) {
         // TODO 2: Add the new chiuit by invoking the DAO; make sure to use the designated mapper.
+        appDatabase.chiuitDao().insert(chiuit.toDbModel())
     }
 
     override fun removeChiuit(chiuit: Chiuit) {

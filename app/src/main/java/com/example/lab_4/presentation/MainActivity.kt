@@ -3,6 +3,7 @@ package com.example.lab_4.presentation
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -105,6 +106,13 @@ class MainActivity : ComponentActivity() {
                 }
             }
             // TODO 4: Add a new button that has the purpose to delete a chiuit.
+            Button(
+                modifier = Modifier
+                    .weight(0.8f)
+                    .padding(8.dp),
+                onClick = {viewModel.removeChiuit(chiuit)}){
+                Text("Delete")
+            }
         }
     }
 
@@ -140,6 +148,8 @@ class MainActivity : ComponentActivity() {
     private fun setChiuitText(resultText: String?) {
         if(resultText !== null) {
             // TODO 1: Instantiate a new chiuit object then delegate the addition to the [viewModel].
+            val chiuit = Chiuit(System.currentTimeMillis(), resultText)
+            viewModel.addChiuit(chiuit.description)
         }
     }
 
