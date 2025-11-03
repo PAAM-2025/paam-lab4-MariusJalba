@@ -9,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -106,11 +107,12 @@ class MainActivity : ComponentActivity() {
                 }
             }
             // TODO 4: Add a new button that has the purpose to delete a chiuit.
+            Spacer(modifier = Modifier.padding(top = 8.dp))
+
             Button(
-                modifier = Modifier
-                    .weight(0.8f)
-                    .padding(8.dp),
-                onClick = {viewModel.removeChiuit(chiuit)}){
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { viewModel.removeChiuit(chiuit) }
+            ) {
                 Text("Delete")
             }
         }
